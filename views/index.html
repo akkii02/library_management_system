@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+        color: #2c3e50;
+        font-size: 3rem;
+        letter-spacing: -1px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #bookForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+        margin: 30px auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      #bookForm:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+      }
+
+      #bookForm div {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: #34495e;
+      }
+
+      input[type="text"] {
+        width: 95%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        padding: 14px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+
+      #bookInfo,
+      #returnedBooks {
+        margin: 20px auto;
+        max-width: 900px;
+        padding: 25px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+
+      #bookInfo:hover,
+      #returnedBooks:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .bookContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .bookSection {
+        border-radius: 12px;
+        margin: 10px;
+        padding: 20px;
+        background-color: #f8c291;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex: 0 0 45%;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .bookSection:hover {
+        transform: translateY(-3px);
+      }
+
+      .bookSection button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+        font-size: 1rem;
+      }
+
+      .bookSection button:hover {
+        background-color: #c0392b;
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 2rem;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .fineAmount {
+        margin-top: 10px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .fineAmountInput {
+        margin-top: 10px;
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Library Management System</h1>
+    <div id="bookForm">
+      <div>
+        <label for="bname">Book Name: </label>
+        <input
+          type="text"
+          name="bname"
+          id="bname"
+          placeholder="Please Enter Book Name"
+        />
+      </div>
+      <button type="submit" onclick="issueBook(event)">Submit</button>
+    </div>
+
+    <div id="bookInfo">
+      <h2>Borrowed Books</h2>
+      <div id="borrowedBooks" class="bookContainer"></div>
+    </div>
+
+    <div id="returnedBooks">
+      <h2>Returned Books</h2>
+      <div id="returnedBooksContainer" class="bookContainer"></div>
+    </div>
+
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+</html>
